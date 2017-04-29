@@ -31,7 +31,6 @@ import argparse
 import subprocess
 from smbus2 import SMBusWrapper
 
-
 ### Set up the command line stuff
 parser = argparse.ArgumentParser(description='Transmit integer to address')
 parser.add_argument('bus', metavar='b', help='bus to transmit on (Will be 0 or 1)')
@@ -52,6 +51,6 @@ with SMBusWrapper(args.bus) as bus:
 # should be ommited entirely and moved to a script somewhere that can fetch
 # speed from the motor controller using I2C
 #
-datastream = open("~/data.txt", "w")
+datastream = open("/home/will/data.txt", "w")
 
 datastream.write(args.data)

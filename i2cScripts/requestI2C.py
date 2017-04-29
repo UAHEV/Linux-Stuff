@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-### This code does not yet function in full form ###
 
 import argparse
 import subprocess
@@ -20,8 +19,15 @@ args = parser.parse_args()
 with SMBusWrapper(args.bus) as bus:	
 	### Read a block of 16 bytes from address 80, offset 0
     	block = bus.read_i2c_block_data(0x08, 0, 6)
-    	### Returned value is a list of 16 bytes
-    	print(block)
+    	### Set the string for output
+	returnData = ""
+	### Returned value is a list of 16 byte
+	for value in block:
+		if (value < 128):
+			returnData += str(chr(value))
+	### And print
+	print(returnData)
+	
 #	try:
 #    	bus.write_i2c_block_data(args.address, 0, bytearray(args.data))
 #	except IOError:
