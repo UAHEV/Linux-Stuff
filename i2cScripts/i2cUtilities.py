@@ -16,6 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from smbus2 import SMBusWrapper
+
 ######################################################################################
 # transmitI2C - Utility for transmitting data over I2C.                              #
 #                                                                                    #
