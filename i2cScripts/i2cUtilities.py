@@ -29,7 +29,7 @@ from smbus2 import SMBusWrapper
 # "long readI2CHex(int howMany)" to recieve the value                                #
 ######################################################################################
 def transmitI2C(bus, address, data):
-    with SMBusWrapper(args.bus) as bus:
+    with SMBusWrapper(bus) as bus:
     	bus.write_i2c_block_data(int(address, 16), 0, bytearray(hex(int(data))))
 
 ### End transmitI2C()
