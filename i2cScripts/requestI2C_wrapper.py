@@ -26,7 +26,7 @@ from i2cUtilities import requestI2C
 ### Set up the command line stuff
 parser = argparse.ArgumentParser(description='Request data from I2C device')
 parser.add_argument('bus', metavar='b', help='bus to request from (0 or 1)')
-parser.add_argument('address', metavar='a', help='address to request from (decimal)')
+parser.add_argument('address', metavar='a', type=int, help='address to request from (decimal)')
 
 ### Parse the command line arguments
 args = parser.parse_args()
